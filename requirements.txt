@@ -2,18 +2,18 @@
 streamlit==1.31.0
 python-dotenv==1.0.0
 
-# LangChain and related (updated for latest compatibility)
-langchain>=0.2.0
-langchain-core>=0.1.22
-langchain-community>=0.0.21
-langsmith>=0.1.22
-langchain-mistralai>=0.0.6
-langchain-pinecone>=0.0.2
-langchain-huggingface>=0.0.9
+# LangChain and related (compatible versions)
+langchain==0.1.14
+langchain-core==0.1.22
+langchain-community==0.0.21
+langsmith==0.1.22
+langchain-mistralai==0.0.6
+langchain-pinecone==0.0.2
+langchain-huggingface==0.0.9
 
 # Vector store and embeddings
 pinecone-client==3.0.1
-sentence-transformers>=2.6.0  # Updated to match langchain-huggingface requirement
+sentence-transformers==2.2.2  # ✅ Stable version for compatibility
 
 # Machine Learning
 torch==2.2.0
@@ -25,4 +25,4 @@ torchaudio==2.2.0
 typing-extensions>=4.8.0
 requests>=2.31.0
 numpy>=1.24.3
-pydantic>=2.5.2
+pydantic==1.10.13  # ✅ Downgraded to Pydantic v1 (compatible with LangChain)
