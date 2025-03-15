@@ -29,7 +29,7 @@ RETRIEVER_K = 4
 
 embedding_function = HuggingFaceEmbeddings(
     model_name=EMBEDDING_MODEL,
-    model_kwargs={'device': device}
+    model_kwargs={'device': 'cuda' if torch.cuda.is_available() else 'cpu'}
 )
 
 # Load environment variables
@@ -168,6 +168,7 @@ def initialize_chains(llm, retriever):
         llm=llm,
         chain_type="stuff",
         retriever=retriever,
+        return_source_documents=True,
         chain_type_kwargs={"prompt": retrieval_prompt}
     )
 
