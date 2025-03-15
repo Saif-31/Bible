@@ -20,13 +20,18 @@ from ui import BibleChatUI
 
 # Configure torch
 torch.set_default_dtype(torch.float32)
-torch.set_default_device("cuda" if torch.cuda.is_available() else "cpu")
+device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Constants
 EMBEDDING_MODEL = 'BAAI/bge-small-en-v1.5'
 PINECONE_INDEX_NAME = "data"
 PINECONE_NAMESPACE = "text_chunks"
 RETRIEVER_K = 4
+
+embedding_function = HuggingFaceEmbeddings(
+    model_name=EMBEDDING_MODEL,
+    model_kwargs={'device': device}
+)
 
 # Load environment variables
 load_dotenv()
