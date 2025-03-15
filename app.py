@@ -81,7 +81,7 @@ def init_llm(system_prompt: str) -> ChatMistralAI:
 
 @st.cache_data(show_spinner=False)
 def process_query(query: str, 
-                 _refinement_chain: RunnableLambda,  # Added underscore to prevent hashing
+                 _refinement_chain: RunnableLambda(lambda x: x),  # Added underscore to prevent hashing
                  _retrieval_chain: RetrievalQA) -> str:
     """
     Process a user query and return the bot's response.
